@@ -9,5 +9,10 @@ export class AuthDto{
     @IsNotEmpty()
     password : string
 
+     @IsString()
+    @IsNotEmpty()
+    firstName : string
+
+
 
 }

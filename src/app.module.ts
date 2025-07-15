@@ -7,11 +7,12 @@ import { BoardModule } from './Board/board.module';
 import { AuthModule } from './Auth/auth.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { ConfigModule } from '@nestjs/config';
+import { ListModule } from './List/list.module';
 
 @Module({
   imports: [ConfigModule.forRoot({
     isGlobal:true
-  }) ,PrismaModule, UserModule,AuthModule, BoardModule],
+  }) ,PrismaModule,ListModule, UserModule,AuthModule, BoardModule],
   controllers: [AppController, UserController],
   providers: [AppService],
 })
