@@ -25,7 +25,7 @@ export class AuthService {
                 data:
                 {
                     email: dto.email,
-                    hash : dto.password
+                    hash :hash
                 },
             });
             console.log("🚀 ~ AuthService ~ signup ~ hash:", user)
@@ -49,22 +49,23 @@ export class AuthService {
           email: dto.email,
         },
       });  
-    // console.log("🚀 ~ AuthService ~ signin ~ user:", user)
+    console.log("🚀 ~ AuthService ~ signin ~ user:", user)
     // if user does not exist throw exception
     if (!user)
       throw new ForbiddenException(
-        'Credentials incorrect',
+        'Invalid email or password',
       );
 
     // compare password
-    const matchPassword = await bcrypt.compare(dto.password ,user.hash)
+    const matchPassword = await bcrypt.compare(dto.password ,user.hash  )
+    //console.log("match password : " , matchPassword,"Dto password : ", user.hash, "User hash : s", dto.password)
     if (!matchPassword)
       throw new ForbiddenException(
-        'Credentials incorrect',
+        'Invalid email or password',
       );
     //   delete (user as Partial<any>).hash /** https://stackoverflow.com/questions/63702057/what-is-the-logic-behind-the-typescript-error-the-operand-of-a-delete-operato/63705211 */
             //return the saved user 
-      return user
+     return this.signToken(user.id, user.email );
     }
     async signToken(
            userId: number,
@@ -79,7 +80,7 @@ export class AuthService {
            const token = await this.JWT.signAsync(
              payload,
              {
-               expiresIn: '15m',
+               expiresIn: '340m',
                secret: secret,
              },
            );

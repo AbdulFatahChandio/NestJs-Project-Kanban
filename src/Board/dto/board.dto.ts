@@ -5,8 +5,8 @@ export class BoardDto{
     @IsNotEmpty()
     title :string
 
-     @IsInt()
-     @IsNotEmpty()
-     creatorId:number
+    //  @IsInt()
+    //  @IsNotEmpty()
+    //  creatorId:number
 
 }
