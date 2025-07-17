@@ -67,6 +67,7 @@ export class AuthService {
             //return the saved user 
      return this.signToken(user.id, user.email );
     }
+    
     async signToken(
            userId: number,
            email: string,
@@ -90,6 +91,23 @@ export class AuthService {
            };
          }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
