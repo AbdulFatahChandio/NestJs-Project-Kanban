@@ -21,6 +21,109 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+  # 🗂️ Kanban Board API
+
+A full-featured, modular **NestJS** backend for a Kanban-style task management app. Built with **Prisma** ORM and **PostgreSQL**, and powered by **Docker** for easy setup.
+
+---
+
+## 🚀 Features
+
+- 🔐 JWT Authentication (Auth Module)
+- 👤 User Management (CRUD)
+- 🧩 List & Board Modules
+- 🗃️ PostgreSQL via Docker
+- 🔄 Prisma ORM for database management
+- 📦 Modular architecture with NestJS
+- 🔧 Environment config via `@nestjs/config`
+
+---
+
+## 📮 API Routes (NestJS Kanban)
+
+All routes are prefixed based on their module. Example base URL: `http://localhost:3000`
+
+---
+
+### 🔐 Auth Routes
+
+| Method | Endpoint   | Description             |
+|--------|------------|-------------------------|
+| POST   | `/auth`    | Authenticate a user and return a token |
+
+---
+
+### 👤 User Routes
+
+| Method | Endpoint       | Description           |
+|--------|----------------|-----------------------|
+| GET    | `/users`       | Get all users         |
+| GET    | `/users/:id`   | Get user by ID        |
+| POST   | `/users`       | Create a new user     |
+| PATCH  | `/users/:id`   | Update an existing user |
+| DELETE | `/users/:id`   | Delete a user         |
+
+---
+
+### 📋 List Routes
+
+| Method | Endpoint       | Description           |
+|--------|----------------|-----------------------|
+| GET    | `/lists`       | Get all Kanban lists  |
+| GET    | `/lists/:id`   | Get a list by ID      |
+| POST   | `/lists`       | Create a new list     |
+| PATCH  | `/lists/:id`   | Update a list         |
+| DELETE | `/lists/:id`   | Delete a list         |
+
+---
+
+### 🧾 Board Routes *(Planned)*
+
+| Method | Endpoint        | Description          |
+|--------|-----------------|----------------------|
+| GET    | `/boards`       | Get all boards       |
+| GET    | `/boards/:id`   | Get board by ID      |
+| POST   | `/boards`       | Create a new board   |
+| PATCH  | `/boards/:id`   | Update a board       |
+| DELETE | `/boards/:id`   | Delete a board       |
+
+---
+
+### 🛡️ Authorization (Optional)
+
+Most endpoints will require Bearer Token authentication once JWT is implemented. Add an `Authorization` header like:
+
+
+
+## 📁 Project Structure
+
+| Path                       | Description                           |
+|----------------------------|---------------------------------------|
+| `kanban-board/`            | Root project folder                   |
+| ├── `prisma/`              | Prisma schema and migrations          |
+| ├── ├── `migrations/`      | Prisma migration files                |
+| ├── └── `schema.prisma`    | Prisma database schema                |
+| ├── `src/`                 | Main source code folder               |
+| ├── ├── `auth/`            | Auth module (JWT, strategies)         |
+| ├── ├── `board/`           | Board module                          |
+| ├── ├── `list/`            | List module                           |
+| ├── ├── `user/`            | User module                           |
+| ├── ├── `prisma/`          | PrismaService wrapper for DI          |
+| ├── ├── `app.controller.ts`| Root controller (optional health check)|
+| ├── ├── `app.module.ts`    | Root module importing all modules     |
+| ├── ├── `app.service.ts`   | Root service logic (minimal)          |
+| ├── └── `main.ts`          | Entry point for bootstrapping NestJS  |
+| `docker-compose.yml`       | Docker config for PostgreSQL          |
+| `.prettierrc`              | Prettier code formatting configuration|
+| `nest-cli.json`            | NestJS CLI configuration              |
+| `tsconfig.json`            | TypeScript compiler configuration     |
+
+
+yaml
+Copy
+Edit
+
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
