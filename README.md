@@ -119,10 +119,6 @@ Most endpoints will require Bearer Token authentication once JWT is implemented.
 | `tsconfig.json`            | TypeScript compiler configuration     |
 
 
-yaml
-Copy
-Edit
-
 
 ## Description
 
